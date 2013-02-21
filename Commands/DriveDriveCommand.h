@@ -21,7 +21,12 @@
  *
  * @author ExampleAuthor
  */
-class DriveDriveCommand: public Command {
+class DriveDriveCommand: public Command 
+{
+private:
+	float snapx;
+	float snapy;
+	float snapz;
 public:
 	DriveDriveCommand();
 	virtual void Initialize();
@@ -29,6 +34,7 @@ public:
 	virtual bool IsFinished();
 	virtual void End();
 	virtual void Interrupted();
+	double lastExecuteTime;
 };
 
 #endif

@@ -10,7 +10,6 @@
 #include "CancelAllCommand.h"
 CancelAllCommand::CancelAllCommand()
 {
-	Requires(Robot::angelWings);
 	Requires(Robot::articulatingArm);
 	Requires(Robot::drive);
 	Requires(Robot::feet);
@@ -31,10 +30,11 @@ void CancelAllCommand::Initialize() {
 // Called repeatedly when this Command is scheduled to run
 void CancelAllCommand::Execute() 
 {
-	printf("CANCEL ALL");
+	printf("--------------------------\nCANCEL ALL\n--------------------------");
 }
 // Make this return true when this Command no longer needs to run execute()
-bool CancelAllCommand::IsFinished() {
+bool CancelAllCommand::IsFinished() 
+{
 	return true;
 }
 // Called once after isFinished returns true

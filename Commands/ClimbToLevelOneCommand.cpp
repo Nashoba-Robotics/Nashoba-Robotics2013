@@ -8,14 +8,90 @@
 // update. Deleting the comments indicating the section will prevent
 // it from being updated in th future.
 
-
-
+#include "SmartDashboard/SmartDashboard.h"
+#include "ArticulatedDeployCommand.h"
+#include "ArticulatedExtendCommand.h"
+#include "ArticulatedIdleCommand.h"
+#include "ArticulatedUndeployCommand.h"
+#include "ArticulatedUnextendCommand.h"
+#include "AutonomousCommand.h"
+#include "CancelAllCommand.h"
+#include "TrackClimbDistanceCommand.h"
 #include "ClimbToLevelOneCommand.h"
+#include "ClimbToLevelTwoCommand.h"
+#include "CompressorIdleCommand.h"
+#include "CompressorStartCommand.h"
+#include "CompressorStopCommand.h"
+#include "DriveBrakeCommand.h"
+#include "DriveDriveCommand.h"
+#include "FeetDeployCommand.h"
+#include "FeetIdleCommand.h"
+#include "FeetUndeployCommand.h"
+#include "FixedDeployCommand.h"
+#include "FixedIdleCommand.h"
+#include "FixedUndeployCommand.h"
+#include "ShooterIdleCommand.h"
+#include "ShooterLoadCommand.h"
+#include "ShooterStopCommand.h"
+#include "TippingDeployCommand.h"
+#include "TippingIdleCommand.h"
+#include "TrackDriveDownUntilForceCommand.h"
+#include "TrackDriveSpeedCommand.h"
+#include "TrackIdleCommand.h"
+#include "TrackDriveDownUntilFeetHitCommand.h"
 
 ClimbToLevelOneCommand::ClimbToLevelOneCommand() 
 {
 	//Aligned and the beam break is broken and angel wings out
+	AddSequential(new TippingDeployCommand());
 	
+	AddParallel(new TrackDriveDownUntilForceCommand());
+	AddParallel(new ArticulatedDeployCommand());
+	AddSequential(new FixedDeployCommand());
+	
+	AddSequential(new TrackClimbDistanceCommand(9001)); //TODO Climb the correct distance
+	
+	AddSequential(new ArticulatedUndeployCommand());
+	
+	AddSequential(new TrackClimbDistanceCommand(9001)); //TODO Climb the correct distance
+	
+	AddSequential(new ArticulatedDeployCommand());
+	
+	AddSequential(new FixedUndeployCommand());
+	
+	AddSequential(new TrackClimbDistanceCommand(9001)); //TODO Climb the correct distance
+	
+	AddSequential(new FixedDeployCommand());
+	
+	AddSequential(new TrackClimbDistanceCommand(9001));//TODO Climb the correct distance
+	
+	AddParallel(new FeetDeployCommand());
+	AddSequential(new TrackDriveDownUntilFeetHitCommand());
+	
+	AddSequential(new TrackClimbDistanceCommand(9001));//TODO Climb the correct distance
+		
+	AddSequential(new FixedUndeployCommand());
+	
+	AddSequential(new TrackClimbDistanceCommand(9001));//TODO Climb the correct distance
+	
+	AddSequential(new FixedDeployCommand());
+	
+	AddSequential(new ArticulatedUndeployCommand());
+	
+	AddSequential(new TrackClimbDistanceCommand(9001));//TODO Climb the correct distance
+		
+	AddSequential(new ArticulatedDeployCommand());
+	
+	AddSequential(new FixedUndeployCommand());
+	
+	AddParallel(new ArticulatedExtendCommand());
+	AddSequential(new TrackClimbDistanceCommand(9001));//TODO Move mantle correct amount
+	
+	AddSequential(new ArticulatedUnextendCommand());
+	
+	AddSequential(new FixedDeployCommand());
+	
+	AddSequential(new TrackDriveDownUntilForceCommand());
 	// Add Commands here:
 	// e.g. AddSequential(new Command1());
 	//      AddSequential(new Command2());

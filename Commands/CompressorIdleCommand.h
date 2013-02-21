@@ -23,11 +23,8 @@
  */
 class CompressorIdleCommand: public Command 
 {
-private: 
-	bool mAutomatic;
-	CompressorIdleCommand();
 public:
-	CompressorIdleCommand(bool automatic);
+	CompressorIdleCommand();
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();

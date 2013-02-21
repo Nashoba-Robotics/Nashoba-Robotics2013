@@ -20,7 +20,8 @@
  *
  * @author ExampleAuthor
  */
-class ClimbToLevelOneCommand: public CommandGroup {
+class ClimbToLevelOneCommand: public CommandGroup 
+{
 public:	
 	ClimbToLevelOneCommand();
 };
