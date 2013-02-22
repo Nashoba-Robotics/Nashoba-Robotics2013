@@ -11,9 +11,16 @@
 #define OI_H
 #include "WPILib.h"
 #include "Gamepad.hpp"
+
 class OI {
 private:
 	Gamepad pad;
+
+	// What's a joystick button? Is this another Command-based Robot thing?
+	// I don't know if the way you are using these buttons calls for using 
+	// the Button scheduler they have set up. But I could be wrong. You could 
+	// just use the Gamepad class. But then you would have to set up a button
+	// "scheduler" of your own which shouldn't be too hard. Your choice.
 	JoystickButton* xButton;
 	JoystickButton* yButton;
 	JoystickButton* bButton;

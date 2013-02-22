@@ -14,13 +14,11 @@
 
 
 #include "Commands/Subsystem.h"
+
+// Include this in the source file, not here. You don't use it here and it is 
+// bad practice.
 #include "../Robot.h"
 
-/**
- *
- *
- * @author ExampleAuthor
- */
 class ArticulatedDeployCommand: public Command {
 public:
 	ArticulatedDeployCommand();
