@@ -22,7 +22,7 @@ void ShooterStopCommand::Initialize() {
 // Called repeatedly when this Command is scheduled to run
 void ShooterStopCommand::Execute() 
 {
-	SmartDashboard::PutNumber("Shooter Jag Speed", 0);
+	Robot::shooter->setSpeed(0);
 }
 // Make this return true when this Command no longer needs to run execute()
 bool ShooterStopCommand::IsFinished() {

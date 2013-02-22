@@ -22,17 +22,6 @@ void TrackIdleCommand::Initialize() {
 // Called repeatedly when this Command is scheduled to run
 void TrackIdleCommand::Execute() 
 {
-	/*
-	if(Robot::oi->GetPadButton(Gamepad::kRightBumper))
-	{
-		Robot::track->Drive(0.3);
-	}
-	else if(Robot::oi->GetPadButton(Gamepad::kLeftBumper))
-	{
-		Robot::track->Drive(-0.3);
-	}
-	else
-		Robot::track->Drive(0);*/
 }
 // Make this return true when this Command no longer needs to run execute()
 bool TrackIdleCommand::IsFinished() 

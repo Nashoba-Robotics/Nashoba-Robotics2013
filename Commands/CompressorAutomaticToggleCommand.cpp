@@ -23,7 +23,8 @@ void CompressorAutomaticToggleCommand::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void CompressorAutomaticToggleCommand::Execute()
 {
-	SmartDashboard::PutBoolean("Compressor Automatic Mode", !(SmartDashboard::GetBoolean("Compressor Automatic Mode")));
+	Robot::pneumaticsCompressor->toggleAutomatic();
+	SmartDashboard::PutBoolean("Compressor Automatic", Robot::pneumaticsCompressor->getAutomatic());
 }
 // Make this return true when this Command no longer needs to run execute()
 bool CompressorAutomaticToggleCommand::IsFinished() {

@@ -10,10 +10,7 @@
 #include "CancelAllCommand.h"
 CancelAllCommand::CancelAllCommand()
 {
-	Requires(Robot::articulatingArm);
 	Requires(Robot::drive);
-	Requires(Robot::feet);
-	Requires(Robot::fixedArm);
 	Requires(Robot::pneumaticsCompressor);
 	Requires(Robot::shooter);
 	Requires(Robot::tipping);

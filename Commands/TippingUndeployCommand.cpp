@@ -21,7 +21,7 @@ void TippingUndeployCommand::Initialize() {
 }
 // Called repeatedly when this Command is scheduled to run
 void TippingUndeployCommand::Execute() {
-	RobotMap::tippingSolenoid1->Set(false);
+	Robot::tipping->Undeploy();
 }
 // Make this return true when this Command no longer needs to run execute()
 bool TippingUndeployCommand::IsFinished() {

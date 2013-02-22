@@ -20,7 +20,8 @@ void TrackDeployBrakeCommand::Initialize() {
 	
 }
 // Called repeatedly when this Command is scheduled to run
-void TrackDeployBrakeCommand::Execute() {
+void TrackDeployBrakeCommand::Execute() 
+{
 	Robot::track->TurnOffBreaks(false);
 }
 // Make this return true when this Command no longer needs to run execute()

@@ -30,7 +30,8 @@ void DriveDirectionCommand::Execute()
 	Robot::drive->driveMecanum(m_x, m_y, 0);
 }
 // Make this return true when this Command no longer needs to run execute()
-bool DriveDirectionCommand::IsFinished() {
+bool DriveDirectionCommand::IsFinished() 
+{
 	return (TimeSinceInitialized() >= m_time);
 }
 // Called once after isFinished returns true
