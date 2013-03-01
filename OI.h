@@ -11,6 +11,7 @@
 #define OI_H
 #include "WPILib.h"
 #include "Gamepad.hpp"
+#include "XPad.h"
 class OI {
 private:
 	Gamepad pad;
