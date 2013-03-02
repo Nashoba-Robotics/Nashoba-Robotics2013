@@ -23,10 +23,9 @@ void CompressorStartCommand::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void CompressorStartCommand::Execute() 
 {
-	if(RobotMap::pneumaticsCompressorDigitalInput1->Get() < 0.5)
+	if(!(Robot::pneumaticsCompressor->pressureIsFull()))
 	{
-		printf("^^^COMPRESSOR START^^^\n");
-		RobotMap::compressorRelay->Set(Relay::kOn);
+		Robot::pneumaticsCompressor->setCompressor(true);
 	}
 }
 // Make this return true when this Command no longer needs to run execute()

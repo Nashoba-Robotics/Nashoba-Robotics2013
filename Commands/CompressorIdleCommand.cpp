@@ -26,15 +26,14 @@ void CompressorIdleCommand::Initialize() {
 // Called repeatedly when this Command is scheduled to run
 void CompressorIdleCommand::Execute() 
 {
-	if(RobotMap::pneumaticsCompressorDigitalInput1->Get() > 0.5)
+	if(Robot::pneumaticsCompressor->pressureIsFull())
 	{
-		//printf("---COMPRESSOR CANCELED---");
-		RobotMap::compressorRelay->Set(Relay::kOff);
+		Robot::pneumaticsCompressor->setCompressor(false);
 	}
 	else
 	{
-		if(SmartDashboard::GetBoolean("Compressor Automatic Mode"))
-			RobotMap::compressorRelay->Set(Relay::kOn);
+		if(Robot::pneumaticsCompressor->getAutomatic())
+			Robot::pneumaticsCompressor->setCompressor(true);
 	}
 	
 }

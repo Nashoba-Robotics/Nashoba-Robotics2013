@@ -23,7 +23,7 @@ void CompressorStopCommand::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void CompressorStopCommand::Execute() 
 {
-	RobotMap::compressorRelay->Set(Relay::kOff);
+	Robot::pneumaticsCompressor->setCompressor(false);
 }
 // Make this return true when this Command no longer needs to run execute()
 bool CompressorStopCommand::IsFinished() {

@@ -24,49 +24,29 @@ void DriveDriveCommand::Initialize()
 }
 // Called repeatedly when this Command is scheduled to run
 void DriveDriveCommand::Execute() 
-{
-	
-	/*SmartDashboard::PutNumber("Left Stick X Axis", Robot::oi->getPadRawAxis(Gamepad::kLeftXAxis));
-	SmartDashboard::PutNumber("Left Stick Y Axis", Robot::oi->getPadRawAxis(Gamepad::kLeftYAxis));
-	SmartDashboard::PutNumber("Right Stick X Axis", Robot::oi->getPadRawAxis(Gamepad::kRightXAxis));
-	SmartDashboard::PutNumber("Right Stick Y Axis", Robot::oi->getPadRawAxis(Gamepad::kRightYAxis));
-	SmartDashboard::PutNumber("D-Pad X Axis", Robot::oi->getPadRawAxis(Gamepad::kDPadXAxis));
-	SmartDashboard::PutNumber("D-Pad Y Axis", Robot::oi->getPadRawAxis(Gamepad::kDPadYAxis));
-	
-	USED FOR GAMEPAD
-	if(Robot::oi->getPadRawAxis(Gamepad::kDPadXAxis) != 0 || Robot::oi->getPadRawAxis(Gamepad::kDPadYAxis) != 0)
-	{
-		Robot::drive->driveMecanum(0.5, 0, -(Robot::oi->getPadRawAxis(Gamepad::kRightXAxis)));
-	}
-	else
-		Robot::drive->driveMecanum((Robot::oi->getPadRawAxis(Gamepad::kLeftXAxis)), 
-				(Robot::oi->getPadRawAxis(Gamepad::kLeftYAxis)), -(Robot::oi->getPadRawAxis(Gamepad::kRightXAxis)));*/
-	
+{	
 	double currentTime = Timer::GetFPGATimestamp();
 	SmartDashboard::PutNumber("Delta Drive Invocation", currentTime - lastExecuteTime);
 	lastExecuteTime = currentTime;
 	
-	/*if(Robot::oi->getPadRawAxis(Gamepad::kDPadXAxis)  > 0)
+	if(Robot::oi->getPadRawAxis(Gamepad::kDPadXAxis)  > 0)
 	{
-		
 		Robot::drive->driveMecanum(-0.2, 0, 0);
 	}
 	else if(Robot::oi->getPadRawAxis(Gamepad::kDPadXAxis) < 0)
+	{
 		Robot::drive->driveMecanum(0.2, 0, 0);
+	}
 	else
-	{*/
-		SmartDashboard::PutNumber("Big Stick X", Robot::oi->getBigStickX());
-		SmartDashboard::PutNumber("Big Stick Y", Robot::oi->getBigStickY());
-		
+	{	
 		/*snapx = (Robot::oi->getBigStickX() > 0.08) ? Robot::oi->getBigStickX() : 0;
 		snapy = (Robot::oi->getBigStickY() > 0.08) ? Robot::oi->getBigStickY() : 0;
 		snapz = (Robot::oi->getBigStickX() > 0.08) ? Robot::oi->getBigStickZ() : 0;
 		Robot::drive->driveMecanum(snapx, snapy, snapz);*/
 		
-		//Robot::drive->driveMecanum(Robot::oi->getBigStickX(), -Robot::oi->getBigStickY(),-Robot::oi->getBigStickZ());
-		//Robot::drive->driveMecanum(Robot::oi->getPadRawAxis(Gamepad::kLeftXAxis)/2, -Robot::oi->getPadRawAxis(Gamepad::kLeftYAxis)/2, (-Robot::oi->getPadRawAxis(Gamepad::kRightXAxis)/2));
-		Robot::drive->driveMecanum(0,0,0);
-		//}
+		Robot::drive->driveMecanum(Robot::oi->getPadRawAxis(Gamepad::kLeftXAxis)/2, -Robot::oi->getPadRawAxis(Gamepad::kLeftYAxis)/2, (-Robot::oi->getPadRawAxis(Gamepad::kRightXAxis)/2));
+		
+	}
 }
 // Make this return true when this Command no longer needs to run execute()
 bool DriveDriveCommand::IsFinished() 

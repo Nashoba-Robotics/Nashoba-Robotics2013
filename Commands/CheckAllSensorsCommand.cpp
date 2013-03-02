@@ -11,9 +11,6 @@
 CheckAllSensorsCommand::CheckAllSensorsCommand() : Command("Check All Sensors")
 {	
 	Requires(Robot::drive);
-	Requires(Robot::articulatingArm);
-	Requires(Robot::feet);
-	Requires(Robot::fixedArm);
 	Requires(Robot::shooter);
 	Requires(Robot::tipping);
 	Requires(Robot::track);

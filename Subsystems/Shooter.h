@@ -18,6 +18,7 @@
  */
 class Shooter: public Subsystem {
 private:
+	float m_speed;
 	// It's desirable that everything possible under private except
 	// for methods that implement subsystem capabilities
 public:
@@ -29,5 +30,8 @@ public:
 	void InitDefaultCommand();
 	void LoaderDeploy();
 	void LoaderUndeploy();
+	float getSpeed();
+	void setSpeed(float speed);
+	void maintainSpeed();
 };
 #endif
