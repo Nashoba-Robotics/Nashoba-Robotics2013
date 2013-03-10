@@ -39,10 +39,10 @@ void DriveDriveCommand::Execute()
 	}
 	else
 	{	
-		/*snapx = (Robot::oi->getBigStickX() > 0.08) ? Robot::oi->getBigStickX() : 0;
+		snapx = (Robot::oi->getBigStickX() > 0.08) ? Robot::oi->getBigStickX() : 0;
 		snapy = (Robot::oi->getBigStickY() > 0.08) ? Robot::oi->getBigStickY() : 0;
 		snapz = (Robot::oi->getBigStickX() > 0.08) ? Robot::oi->getBigStickZ() : 0;
-		Robot::drive->driveMecanum(snapx, snapy, snapz);*/
+		Robot::drive->driveMecanum(snapx, snapy, snapz);
 		
 		Robot::drive->driveMecanum(Robot::oi->getPadRawAxis(Gamepad::kLeftXAxis)/2, -Robot::oi->getPadRawAxis(Gamepad::kLeftYAxis)/2, (-Robot::oi->getPadRawAxis(Gamepad::kRightXAxis)/2));
 		
