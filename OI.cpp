@@ -39,17 +39,17 @@
 #include "Commands/ShooterRunCommand.h"
 OI::OI(): pad(1), xPad(2)
 {	
-	lStickButton = new JoystickButton(&xPad, XPad::kLeftStickButton);
-	lStickButton->WhenPressed(new TippingDeployCommand());
+	lStickButtonX = new JoystickButton(&xPad, XPad::kLeftStickButton);
+	lStickButtonX->WhenPressed(new TippingDeployCommand());
 	
-	rStickButton = new JoystickButton(&xPad, XPad::kRightStickButton);
-	rStickButton->WhenPressed(new TippingUndeployCommand());
+	rStickButtonX = new JoystickButton(&xPad, XPad::kRightStickButton);
+	rStickButtonX->WhenPressed(new TippingUndeployCommand());
 	
-	xButton = new JoystickButton(&xPad, XPad::kXButton);
-	xButton->WhenPressed(new ShooterLoadCommand());
+	xButtonX = new JoystickButton(&xPad, XPad::kXButton);
+	xButtonX->WhenPressed(new ShooterLoadCommand());
 	
-	bButton = new JoystickButton(&xPad, XPad::kBButton);
-	bButton->WhenPressed(new ShooterStopCommand());
+	bButtonX = new JoystickButton(&xPad, XPad::kBButton);
+	bButtonX->WhenPressed(new ShooterStopCommand());
 	
 	rBumperButtonX = new JoystickButton(&xPad, XPad::kRightBumperButton);
 	rBumperButtonX->WhenPressed(new TrackDriveSpeedCommand(0.3));
@@ -57,14 +57,14 @@ OI::OI(): pad(1), xPad(2)
 	lBumperButtonX = new JoystickButton(&xPad, XPad::kLeftBumperButton);
 	lBumperButtonX->WhenPressed(new TrackDriveSpeedCommand(-0.3));
 	
-	startButton = new JoystickButton(&xPad, XPad::kStartButton);
-	startButton->WhenPressed(new CompressorStartCommand());
+	startButtonX = new JoystickButton(&xPad, XPad::kStartButton);
+	startButtonX->WhenPressed(new CompressorStartCommand());
 	
-	backButton = new JoystickButton(&xPad, XPad::kBackButton);
-	backButton->WhenPressed(new CompressorAutomaticToggleCommand());
+	backButtonX = new JoystickButton(&xPad, XPad::kBackButton);
+	backButtonX->WhenPressed(new CompressorAutomaticToggleCommand());
 	
-	yButton = new JoystickButton(&xPad, XPad::kYButton);
-	yButton->WhenPressed(new TrackIdleCommand());
+	yButtonX = new JoystickButton(&xPad, XPad::kYButton);
+	yButtonX->WhenPressed(new TrackIdleCommand());
 	
 	aButtonX = new JoystickButton(&xPad, XPad::kAButton);
 	aButtonX->WhenPressed(new ShooterRunCommand());
