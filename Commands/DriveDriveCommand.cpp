@@ -43,17 +43,17 @@ void DriveDriveCommand::Execute()
 		 * FIXME Some of the axes are reversed!
 		 ***********/
 		//SNAP X
-		if(Robot::oi->getPadRawAxis(Gamepad::kLeftXAxis) < 0.08)
+		if(Robot::oi->getPadRawAxis(Gamepad::kLeftXAxis) < 0.08 && Robot::oi->getPadRawAxis(Gamepad::kLeftXAxis) > -0.08)
 			snapx = 0;
 		else
 			snapx = Robot::oi->getPadRawAxis(Gamepad::kLeftXAxis);
 		//SNAP Y
-		if(Robot::oi->getPadRawAxis(Gamepad::kLeftYAxis) < 0.08)
+		if(Robot::oi->getPadRawAxis(Gamepad::kLeftYAxis) < 0.08 && Robot::oi->getPadRawAxis(Gamepad::kLeftYAxis) > -0.08)
 			snapy = 0;
 		else
 			snapy = Robot::oi->getPadRawAxis(Gamepad::kLeftYAxis);
 		//SNAP Z
-		if(Robot::oi->getPadRawAxis(Gamepad::kRightXAxis) < 0.08)
+		if(Robot::oi->getPadRawAxis(Gamepad::kRightXAxis) < 0.08 && Robot::oi->getPadRawAxis(Gamepad::kRightXAxis) > -0.08)
 			snapz = 0;
 		else
 			snapz = Robot::oi->getPadRawAxis(Gamepad::kRightXAxis);
