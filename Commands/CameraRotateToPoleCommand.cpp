@@ -52,7 +52,7 @@ extern "C" void CameraSetPIDPole( char* p, char* i, char* d,  char* f )
 CameraRotateToPoleCommand::CameraRotateToPoleCommand() : PIDCommand("CameraRotateToPoleCommand", pidcoefsPole.GetP(), pidcoefsPole.GetI(), pidcoefsPole.GetD(), pidcoefsPole.GetF() ) // 0.06, 4.0)
 {
 	Requires(Robot::drive);
-	LiveWindow::GetInstance()->AddActuator( "CameraRotate", "CameraRotateToPole", GetPIDController() );
+	LiveWindow::GetInstance()->AddActuator( const_cast<char*>("CameraRotate"), const_cast<char*>("CameraRotateToPole"), GetPIDController() );
 	SmartDashboard::PutString("Camera", __FUNCTION__);
 //	SmartDashboard::PutData("PID_Controller", GetPIDController() );
 }

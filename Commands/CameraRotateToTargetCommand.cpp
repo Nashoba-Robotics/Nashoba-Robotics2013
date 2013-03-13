@@ -53,7 +53,7 @@ extern "C" void CameraSetPID( char* p, char* i, char* d,  char* f )
 CameraRotateToTargetCommand::CameraRotateToTargetCommand() : PIDCommand("CameraRotateToTargetCommand", pidcoefs.GetP(), pidcoefs.GetI(), pidcoefs.GetD(), pidcoefs.GetF() ) // 0.06, 4.0)
 {
 	Requires(Robot::drive);
-	LiveWindow::GetInstance()->AddActuator( "CameraRotate", "CameraRotateToTargetCommand", GetPIDController() );
+	LiveWindow::GetInstance()->AddActuator( const_cast<char*>("CameraRotate"), const_cast<char*>("CameraRotateToTargetCommand"), GetPIDController() );
 	SmartDashboard::PutString("Camera", __FUNCTION__);
 //	SmartDashboard::PutData("PID_Controller", GetPIDController() );
 }

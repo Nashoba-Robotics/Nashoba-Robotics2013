@@ -1,22 +1,24 @@
+#define CLIMB_TRACK_COMMAND_H
+
 #ifndef CLIMB_TRACK__COMMAND_H
 #define CLIMB_TRACK_COMMAND_H
 
-#include "../CommandBase.h"
+#include "Commands/Subsystem.h"
+#include "../Robot.h"
 
 
-class ClimbTrackCommand : public CommandBase 
+class ClimbTrackCommand : public Command
 {
-	CANJaguar climbjag1;
-	CANJaguar climbjag2;
-
 public:
 	
 	ClimbTrackCommand();
 
 	void 
 	ClimbUp();
+	
 	void 
 	ClimbDown();
+	
 	void
 	StopClimb();
 

@@ -10,7 +10,9 @@
 #include <inetLib.h>
 #include <hostLib.h>
 #include <ioLib.h>
-
+#include <string>
+#include <algorithm>
+#include <sstream>
 
 #define BUFFERSIZE		1024
 #define MY_PORT		    9999
@@ -26,10 +28,12 @@ CoprocessorVision * CoprocessorVision::getInstance()
 	return instance;
 }
 
-void alltoupper(char* s)
+void alltoupper(std::string s)
 {
-	while ( *s != 0 )
-		*s++ = toupper(*s);
+	std::string out;
+	out.resize( s.size() );
+
+	std::transform( s.begin(), s.end(), out.begin(), (int (*)(int)) std::toupper );
 }
 
 int CoprocessorVision::run()
@@ -87,8 +91,11 @@ int CoprocessorVision::run()
 					SmartDashboard::PutNumber("GyroAngle", Robot::drive->getGyroAngle());
 				}
 			}
-//			printf("Connect: %s:%d \"%s\"\n", inet_ntoa(addr.sin_addr), ntohs(addr.sin_port), buffer);
-			alltoupper(buffer);
+			
+			std::stringstream ss;
+			ss << buffer;
+			alltoupper( ss.str() );
+
 			if ( sendto(sd, buffer, bytes_read, 0, (struct sockaddr*)&clientaddr, addr_size) == ERROR )
 				perror("reply");
 		}

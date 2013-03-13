@@ -1,36 +1,40 @@
-#include "ClimbTrackCommand.h"
-#include "../Subsystems/DriveSubsystem.h"
+#ifndef CLIMB_TRACK_COMMAND_H
 
-CancelAllCommand::CancelAllCommand() : CommandBase("CancelAllCommand")
+#include "ClimbTrackCommand.h"
+#include "../Subsystems/Drive.h"
+
+ClimbTrackCommand::ClimbTrackCommand() : Command("ClimbTrackCommand")
 {
-	Requires(drivesubsystem);
+	Requires(Robot::drive);
 }
 
 
-void CancelAllCommand::Initialize() 
+void ClimbTrackCommand::Initialize() 
 {
 	
 }
 
 // Called repeatedly when this Command is scheduled to run
-void CancelAllCommand::Execute() 
+void ClimbTrackCommand::Execute() 
 {}
 
 // Make this return true when this Command no longer needs to run execute()
-bool CancelAllCommand::IsFinished() 
+bool ClimbTrackCommand::IsFinished() 
 {
 return true;
 }
 
 // Called once after isFinished returns true
-void CancelAllCommand::End()
+void ClimbTrackCommand::End()
 {
 
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void CancelAllCommand::Interrupted() 
+void ClimbTrackCommand::Interrupted() 
 {
 
 }
+
+#endif

@@ -8,7 +8,7 @@
 // update. Deleting the comments indicating the section will prevent
 // it from being updated in th future.
 #include "PneumaticsCompressor.h"
-#include "../Robotmap.h"
+#include "../RobotMap.h"
 #include "../Commands/CompressorIdleCommand.h"
 PneumaticsCompressor::PneumaticsCompressor() : Subsystem("PneumaticsCompressor") 
 {
