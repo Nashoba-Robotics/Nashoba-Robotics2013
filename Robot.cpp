@@ -75,6 +75,9 @@ void Robot::TeleopPeriodic()
 	SmartDashboard::PutNumber("Scheduler Run duration", currentTime - lastExecuteTime);
 	lastExecuteTime = currentTime;*/
 	
+	//Shooter Wheel
+	SmartDashboard::PutNumber("Shooter Jag Speed", RobotMap::shooterCANJaguar1->GetSpeed());
+	
 	int timesPerSecond = (int)SmartDashboard::GetNumber("SD Times Per Second");
 	if(timesPerSecond < 0)
 	{
@@ -95,12 +98,12 @@ void Robot::TeleopPeriodic()
 		SmartDashboard::PutNumber("Track Analog Force 2", RobotMap::trackAnalogForce2->GetVoltage());
 		
 		
-		//Feet
-		
 		//Subsystems
 		SmartDashboard::PutData(Robot::drive);
 		SmartDashboard::PutData(Robot::track);
 		SmartDashboard::PutData(Robot::shooter);
+		
+		
 	}
 	if (autonomousCommand != NULL)
 		Scheduler::GetInstance()->Run();
