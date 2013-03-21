@@ -37,6 +37,14 @@ void DriveDriveCommand::Execute()
 	{
 		Robot::drive->driveMecanum(0.2, 0, 0);
 	}
+	else if(Robot::oi->getPadRawAxis(Gamepad::kDPadYAxis)  > 0)
+	{
+		Robot::drive->driveMecanum(0, 0.2, 0, 0);
+	}
+	else if(Robot::oi->getPadRawAxis(Gamepad::kDPadYAxis)  < 0)
+	{
+		Robot::drive->driveMecanum(0, -0.2, 0);
+	}
 	else
 	{	
 		/***********
