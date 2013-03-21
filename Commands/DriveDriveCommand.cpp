@@ -45,7 +45,6 @@ void DriveDriveCommand::Execute()
 	{
 		Robot::drive->driveMecanum(0, -0.2, 0);
 	}
-
 	else
 	{	
 		/***********
@@ -60,15 +59,18 @@ void DriveDriveCommand::Execute()
 		if(Robot::oi->getPadRawAxis(Gamepad::kLeftYAxis) < 0.08 && Robot::oi->getPadRawAxis(Gamepad::kLeftYAxis) > -0.08)
 			snapy = 0;
 		else
-			snapy = Robot::oi->getPadRawAxis(Gamepad::kLeftYAxis);
+			snapy = -Robot::oi->getPadRawAxis(Gamepad::kLeftYAxis);
 		//SNAP Z
 		if(Robot::oi->getPadRawAxis(Gamepad::kRightXAxis) < 0.08 && Robot::oi->getPadRawAxis(Gamepad::kRightXAxis) > -0.08)
 			snapz = 0;
 		else
-			snapz = Robot::oi->getPadRawAxis(Gamepad::kRightXAxis);
+			snapz = -Robot::oi->getPadRawAxis(Gamepad::kRightXAxis);
 		
 		//Cut the rotation speed in half (because it is way too fast as it is)
 		snapz /= 2;
+		
+		snapx *= 0.65;
+		snapy *= 0.65;
 		
 		//Cut down all the speeds if the right bumper is being held (for fine alignment)
 		if(Robot::oi->getPadButton(Gamepad::kRightBumper))
@@ -77,6 +79,9 @@ void DriveDriveCommand::Execute()
 			snapy /= 2;
 			snapz /= 2;
 		}
+		SmartDashboard::PutNumber("Snapx", snapx);
+		SmartDashboard::PutNumber("Snapy", snapy);
+		SmartDashboard::PutNumber("Snapz", snapz);
 		
 		Robot::drive->driveMecanum(snapx, snapy, snapz);
 	}
