@@ -41,7 +41,7 @@ float Shooter::getSpeed()
 }
 float Shooter::getActualSpeed()
 {
-	return cANJaguar1->GetOutputVoltage();
+	return cANJaguar1->GetOutputCurrent();
 }
 void Shooter::setSpeed(float speed)
 {

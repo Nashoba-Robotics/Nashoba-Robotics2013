@@ -50,7 +50,6 @@ void Robot::AutonomousInit()
 	
 void Robot::AutonomousPeriodic() 
 {
-	//aout GetWatchdog().Feed();
 	
 	//Robot::drive->driveMecanum(0,0,0);
 	
@@ -68,14 +67,11 @@ void Robot::TeleopInit()
 	if (autonomousCommand != NULL)
 		autonomousCommand->Cancel();
 	
-	GetWatchdog().SetEnabled( false );
-	
 ///	fieldTimerCheckCommand->Start();
 }
 //Runs 50 times a second
 void Robot::TeleopPeriodic() 
 {
-	//GetWatchdog().Feed();
 	
 	dashboardCounter++;
 	/*
@@ -90,6 +86,7 @@ void Robot::TeleopPeriodic()
 	
 	//Shooter Wheel
 	SmartDashboard::PutNumber("Shooter Jag Speed", RobotMap::shooterCANJaguar1->GetSpeed());
+	SmartDashboard::PutNumber("Shooter Speed", Robot::shooter->getActualSpeed());
 	
 	int timesPerSecond = (int)SmartDashboard::GetNumber("SD Times Per Second");
 	if(timesPerSecond < 0)
@@ -110,7 +107,6 @@ void Robot::TeleopPeriodic()
 		SmartDashboard::PutNumber("Track Analog Force 1", RobotMap::trackAnalogForce1->GetVoltage());
 		SmartDashboard::PutNumber("Track Analog Force 2", RobotMap::trackAnalogForce2->GetVoltage());
 		
-		SmartDashboard::PutNumber("Shooter Speed", Robot::shooter->getActualSpeed());
 		
 		//Subsystems
 		SmartDashboard::PutData(Robot::drive);
@@ -122,7 +118,6 @@ void Robot::TeleopPeriodic()
 }
 void Robot::TestPeriodic() 
 {
-	//aout GetWatchdog().Feed();
 //	lw->Run();
 }
 START_ROBOT_CLASS(Robot);

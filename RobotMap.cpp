@@ -55,7 +55,7 @@ void RobotMap::init()
 	driveRobotDrive41 = new RobotDrive(driveCANJaguar1, driveCANJaguar2,
               driveCANJaguar3, driveCANJaguar4);
 	
-	driveRobotDrive41->SetSafetyEnabled(true);
+	driveRobotDrive41->SetSafetyEnabled(false);
         driveRobotDrive41->SetExpiration(0.1);
         driveRobotDrive41->SetSensitivity(0.5);
         driveRobotDrive41->SetMaxOutput(1.0);
