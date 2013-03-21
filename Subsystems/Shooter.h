@@ -31,6 +31,7 @@ public:
 	void LoaderDeploy();
 	void LoaderUndeploy();
 	float getSpeed();
+	float getActualSpeed();
 	void setSpeed(float speed);
 	void maintainSpeed();
 };

@@ -39,6 +39,10 @@ float Shooter::getSpeed()
 {
 	return m_speed;
 }
+float Shooter::getActualSpeed()
+{
+	return cANJaguar1->GetSpeed();
+}
 void Shooter::setSpeed(float speed)
 {
 	m_speed = speed;

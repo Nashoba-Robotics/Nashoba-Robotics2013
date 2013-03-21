@@ -97,13 +97,12 @@ void Robot::TeleopPeriodic()
 		SmartDashboard::PutNumber("Track Analog Force 1", RobotMap::trackAnalogForce1->GetVoltage());
 		SmartDashboard::PutNumber("Track Analog Force 2", RobotMap::trackAnalogForce2->GetVoltage());
 		
+		SmartDashboard::PutNumber("Shooter Speed", Robot::shooter->getActualSpeed());
 		
 		//Subsystems
 		SmartDashboard::PutData(Robot::drive);
 		SmartDashboard::PutData(Robot::track);
 		SmartDashboard::PutData(Robot::shooter);
-		
-		
 	}
 	if (autonomousCommand != NULL)
 		Scheduler::GetInstance()->Run();
