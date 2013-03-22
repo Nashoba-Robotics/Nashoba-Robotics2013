@@ -23,6 +23,14 @@ void ShooterIdleCommand::Initialize() {
 void ShooterIdleCommand::Execute() 
 {
 	Robot::shooter->maintainSpeed();
+	if(Robot::oi->getXPadRawAxis(XPad::kDPadXAxis) == -1)
+	{
+		Robot::shooter->LoaderDeploy();
+	}
+	else if(Robot::oi->getXPadRawAxis(XPad::kDPadXAxis) == 1)
+	{
+		Robot::shooter->LoaderUndeploy();
+	}
 }
 // Make this return true when this Command no longer needs to run execute()
 bool ShooterIdleCommand::IsFinished() {

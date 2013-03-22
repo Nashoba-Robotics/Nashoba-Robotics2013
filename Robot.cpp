@@ -63,7 +63,6 @@ void Robot::TeleopInit()
 	// teleop starts running. If you want the autonomous to 
 	// continue until interrupted by another command, remove
 	// this line or comment it out.
-
 	if (autonomousCommand != NULL)
 		autonomousCommand->Cancel();
 	
@@ -85,7 +84,6 @@ void Robot::TeleopPeriodic()
 	lastExecuteTime = currentTime;*/
 	
 	//Shooter Wheel
-	SmartDashboard::PutNumber("Shooter Jag Speed", RobotMap::shooterCANJaguar1->GetSpeed());
 	SmartDashboard::PutNumber("Shooter Speed", Robot::shooter->getActualSpeed());
 	
 	int timesPerSecond = (int)SmartDashboard::GetNumber("SD Times Per Second");
@@ -114,6 +112,7 @@ void Robot::TeleopPeriodic()
 		SmartDashboard::PutData(Robot::tipping);
 		SmartDashboard::PutData(Robot::articulatingArm);
 		SmartDashboard::PutData(Robot::pneumaticsCompressor);
+		SmartDashboard::PutBoolean("Ready To Shoot", Robot::shooter->getActualSpeed() > 6 && Robot::shooter->getActualSpeed() < 7);
 	}
 		Scheduler::GetInstance()->Run();
 	
