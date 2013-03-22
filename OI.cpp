@@ -116,7 +116,7 @@ OI::OI(): pad(1), xPad(2)
 	SmartDashboard::PutData("Shooter Run Command", new ShooterRunCommand());
 	
 	SmartDashboard::PutBoolean("Compressor Automatic", false);
-	SmartDashboard::PutNumber("SD Times Per Second", 10);
+	SmartDashboard::PutNumber("SD Times Per Second", 5);
 	SmartDashboard::PutNumber("Shooter Jag Speed", 0);
 	SmartDashboard::PutNumber("TRACK DOWN SPEED", 0);
 }

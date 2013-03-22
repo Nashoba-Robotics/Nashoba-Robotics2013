@@ -20,15 +20,15 @@ DriveDriveCommand::DriveDriveCommand() : Command("Drive Drive Command")
 // Called just before this Command runs the first time
 void DriveDriveCommand::Initialize() 
 {
-	lastExecuteTime = Timer::GetFPGATimestamp();
+	//lastExecuteTime = Timer::GetFPGATimestamp();
 }
 // Called repeatedly when this Command is scheduled to run
 void DriveDriveCommand::Execute() 
 {	
-	double currentTime = Timer::GetFPGATimestamp();
+	/*double currentTime = Timer::GetFPGATimestamp();
 	SmartDashboard::PutNumber("Delta Drive Invocation", currentTime - lastExecuteTime);
 	lastExecuteTime = currentTime;
-	
+	*/
 	if(Robot::oi->getPadRawAxis(Gamepad::kDPadXAxis)  > 0)
 	{
 		Robot::drive->driveMecanum(-0.2, 0, 0);

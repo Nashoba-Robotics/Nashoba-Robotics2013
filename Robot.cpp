@@ -96,7 +96,6 @@ void Robot::TeleopPeriodic()
 	int updateRate = (int)((50/timesPerSecond) + 0.5);
 	if((dashboardCounter % updateRate) == 0)
 	{
-		
 		SmartDashboard::PutNumber("Track Quad Encoder Ticks", RobotMap::trackQuadratureEncoder1->Get());
 		SmartDashboard::PutNumber("Track Quad Encoder Distance Inches", RobotMap::trackQuadratureEncoder1->GetDistance());
 		//High Pressure Limit Sensor
@@ -112,6 +111,9 @@ void Robot::TeleopPeriodic()
 		SmartDashboard::PutData(Robot::drive);
 		SmartDashboard::PutData(Robot::track);
 		SmartDashboard::PutData(Robot::shooter);
+		SmartDashboard::PutData(Robot::tipping);
+		SmartDashboard::PutData(Robot::articulatingArm);
+		SmartDashboard::PutData(Robot::pneumaticsCompressor);
 	}
 		Scheduler::GetInstance()->Run();
 	
