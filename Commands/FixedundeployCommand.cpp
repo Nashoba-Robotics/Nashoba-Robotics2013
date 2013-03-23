@@ -20,7 +20,8 @@ void FixedundeployCommand::Initialize() {
 	
 }
 // Called repeatedly when this Command is scheduled to run
-void FixedundeployCommand::Execute() {
+void FixedundeployCommand::Execute() 
+{
 	RobotMap::articulatingArmDoubleSolenoid1->Set(DoubleSolenoid::kReverse);
 }
 // Make this return true when this Command no longer needs to run execute()

@@ -30,7 +30,7 @@ public:
 	void InitDefaultCommand();
 	void LoaderDeploy();
 	void LoaderUndeploy();
-	float getSpeed();
+	float getExpectedSpeed();
 	float getActualSpeed();
 	void setSpeed(float speed);
 	void maintainSpeed();

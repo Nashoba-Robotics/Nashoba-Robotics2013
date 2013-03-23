@@ -20,7 +20,7 @@ void ArticulatingUndeployCommand::Initialize() {
 }
 // Called repeatedly when this Command is scheduled to run
 void ArticulatingUndeployCommand::Execute() {
-	
+	RobotMap::articulatingArmDoubleSolenoid1->Set(DoubleSolenoid::kReverse);
 }
 // Make this return true when this Command no longer needs to run execute()
 bool ArticulatingUndeployCommand::IsFinished() {

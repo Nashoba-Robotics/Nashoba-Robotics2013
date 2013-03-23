@@ -35,7 +35,7 @@ void Shooter::LoaderUndeploy()
 {
 	loaderSolenoid->Set(DoubleSolenoid::kReverse);
 }
-float Shooter::getSpeed()
+float Shooter::getExpectedSpeed()
 {
 	return m_speed;
 }
