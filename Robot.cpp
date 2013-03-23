@@ -86,7 +86,9 @@ void Robot::TeleopPeriodic()
 	lastExecuteTime = currentTime;*/
 	
 	//Shooter Wheel
+	
 	SmartDashboard::PutNumber("Shooter Speed", Robot::shooter->getActualSpeed());
+	SmartDashboard::PutNumber("Shooter Speed Dial", Robot::shooter->getActualSpeed());
 	
 	int timesPerSecond = (int)SmartDashboard::GetNumber("SD Times Per Second");
 	if(timesPerSecond < 0)
@@ -96,8 +98,8 @@ void Robot::TeleopPeriodic()
 	int updateRate = (int)((50/timesPerSecond) + 0.5);
 	if((dashboardCounter % updateRate) == 0)
 	{
-		SmartDashboard::PutNumber("Track Quad Encoder Ticks", RobotMap::trackQuadratureEncoder1->Get());
-		SmartDashboard::PutNumber("Track Quad Encoder Distance Inches", RobotMap::trackQuadratureEncoder1->GetDistance());
+		//SmartDashboard::PutNumber("Track Quad Encoder Ticks", RobotMap::trackQuadratureEncoder1->Get());
+		//SmartDashboard::PutNumber("Track Quad Encoder Distance Inches", RobotMap::trackQuadratureEncoder1->GetDistance());
 		//High Pressure Limit Sensor
 		SmartDashboard::PutBoolean("Pressure Limit Sensor", RobotMap::pneumaticsCompressorDigitalInput1->Get());
 		//Articulating Arm Slide Petentiometer
