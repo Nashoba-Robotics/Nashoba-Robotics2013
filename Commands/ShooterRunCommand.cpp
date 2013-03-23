@@ -24,7 +24,7 @@ void ShooterRunCommand::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void ShooterRunCommand::Execute() 
 {
-	Robot::shooter->setSpeed(0.6);
+	Robot::shooter->setSpeed(0.65);
 }
 // Make this return true when this Command no longer needs to run execute()
 bool ShooterRunCommand::IsFinished() 
