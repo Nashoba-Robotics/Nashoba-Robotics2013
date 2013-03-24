@@ -21,10 +21,7 @@
  *
  * @author ExampleAuthor
  */
-class CheckAllSensorsCommand: public Command 
-{
-private:
-	enum {};
+class CheckAllSensorsCommand: public Command {
 public:
 	CheckAllSensorsCommand();
 	virtual void Initialize();

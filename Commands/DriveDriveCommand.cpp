@@ -20,15 +20,15 @@ DriveDriveCommand::DriveDriveCommand() : Command("Drive Drive Command")
 // Called just before this Command runs the first time
 void DriveDriveCommand::Initialize() 
 {
-	lastExecuteTime = Timer::GetFPGATimestamp();
+	//lastExecuteTime = Timer::GetFPGATimestamp();
 }
 // Called repeatedly when this Command is scheduled to run
 void DriveDriveCommand::Execute() 
 {	
-	double currentTime = Timer::GetFPGATimestamp();
+	/*double currentTime = Timer::GetFPGATimestamp();
 	SmartDashboard::PutNumber("Delta Drive Invocation", currentTime - lastExecuteTime);
 	lastExecuteTime = currentTime;
-	
+	*/
 	if(Robot::oi->getPadRawAxis(Gamepad::kDPadXAxis)  > 0)
 	{
 		Robot::drive->driveMecanum(-0.2, 0, 0);
@@ -37,15 +37,53 @@ void DriveDriveCommand::Execute()
 	{
 		Robot::drive->driveMecanum(0.2, 0, 0);
 	}
+	else if(Robot::oi->getPadRawAxis(Gamepad::kDPadYAxis)  > 0)
+	{
+		Robot::drive->driveMecanum(0, 0.2, 0);
+	}
+	else if(Robot::oi->getPadRawAxis(Gamepad::kDPadYAxis)  < 0)
+	{
+		Robot::drive->driveMecanum(0, -0.2, 0);
+	}
 	else
 	{	
-		/*snapx = (Robot::oi->getBigStickX() > 0.08) ? Robot::oi->getBigStickX() : 0;
-		snapy = (Robot::oi->getBigStickY() > 0.08) ? Robot::oi->getBigStickY() : 0;
-		snapz = (Robot::oi->getBigStickX() > 0.08) ? Robot::oi->getBigStickZ() : 0;
-		Robot::drive->driveMecanum(snapx, snapy, snapz);*/
+		/***********
+		 * FIXME Some of the axes are reversed!
+		 ***********/
+		//SNAP X
+		if(Robot::oi->getPadRawAxis(Gamepad::kLeftXAxis) < 0.08 && Robot::oi->getPadRawAxis(Gamepad::kLeftXAxis) > -0.08)
+			snapx = 0;
+		else
+			snapx = Robot::oi->getPadRawAxis(Gamepad::kLeftXAxis);
+		//SNAP Y
+		if(Robot::oi->getPadRawAxis(Gamepad::kLeftYAxis) < 0.08 && Robot::oi->getPadRawAxis(Gamepad::kLeftYAxis) > -0.08)
+			snapy = 0;
+		else
+			snapy = -Robot::oi->getPadRawAxis(Gamepad::kLeftYAxis);
+		//SNAP Z
+		if(Robot::oi->getPadRawAxis(Gamepad::kRightXAxis) < 0.08 && Robot::oi->getPadRawAxis(Gamepad::kRightXAxis) > -0.08)
+			snapz = 0;
+		else
+			snapz = -Robot::oi->getPadRawAxis(Gamepad::kRightXAxis);
 		
-		Robot::drive->driveMecanum(Robot::oi->getPadRawAxis(Gamepad::kLeftXAxis)/2, -Robot::oi->getPadRawAxis(Gamepad::kLeftYAxis)/2, (-Robot::oi->getPadRawAxis(Gamepad::kRightXAxis)/2));
+		//Cut the rotation speed in half (because it is way too fast as it is)
+		snapz /= 2;
 		
+		snapx *= 0.65;
+		snapy *= 0.65;
+		
+		//Cut down all the speeds if the right bumper is being held (for fine alignment)
+		if(Robot::oi->getPadButton(Gamepad::kRightBumper))
+		{
+			snapx /= 2;
+			snapy /= 2;
+			snapz /= 2;
+		}
+		SmartDashboard::PutNumber("Snapx", snapx);
+		SmartDashboard::PutNumber("Snapy", snapy);
+		SmartDashboard::PutNumber("Snapz", snapz);
+		
+		Robot::drive->driveMecanum(snapx, snapy, snapz);
 	}
 }
 // Make this return true when this Command no longer needs to run execute()

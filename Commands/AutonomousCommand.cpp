@@ -18,10 +18,10 @@ AutonomousCommand::AutonomousCommand()
 	AddSequential(new WaitCommand(3));
 	
 	AddSequential(new ShooterLoadCommand());
-	AddSequential(new WaitCommand(2.5));
+	AddSequential(new WaitCommand(3));
 	
 	AddSequential(new ShooterLoadCommand());
-	AddSequential(new WaitCommand(2.5));
+	AddSequential(new WaitCommand(3));
 	
 	AddSequential(new ShooterLoadCommand());
 	

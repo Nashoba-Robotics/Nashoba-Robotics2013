@@ -9,7 +9,9 @@
 
 class XPad : public Joystick
 {
+public:
 	XPad(UINT32 port) : Joystick(port){}
+	//virtual ~XPad() {};
 	enum
 	{
 		kLeftXAxis = 1,

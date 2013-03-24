@@ -35,9 +35,13 @@ void Shooter::LoaderUndeploy()
 {
 	loaderSolenoid->Set(DoubleSolenoid::kReverse);
 }
-float Shooter::getSpeed()
+float Shooter::getExpectedSpeed()
 {
 	return m_speed;
+}
+float Shooter::getActualSpeed()
+{
+	return cANJaguar1->GetSpeed();
 }
 void Shooter::setSpeed(float speed)
 {

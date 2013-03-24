@@ -8,10 +8,10 @@
 // update. Deleting the comments indicating the section will prevent
 // it from being updated in th future.
 #include "CancelAllCommand.h"
-CancelAllCommand::CancelAllCommand()
+CancelAllCommand::CancelAllCommand() 
 {
 	Requires(Robot::drive);
-	Requires(Robot::pneumaticsCompressor);
+	Requires(Robot::articulatingArm);
 	Requires(Robot::shooter);
 	Requires(Robot::tipping);
 	Requires(Robot::track);
@@ -25,13 +25,11 @@ void CancelAllCommand::Initialize() {
 	
 }
 // Called repeatedly when this Command is scheduled to run
-void CancelAllCommand::Execute() 
-{
-	printf("--------------------------\nCANCEL ALL\n--------------------------");
+void CancelAllCommand::Execute() {
+	
 }
 // Make this return true when this Command no longer needs to run execute()
-bool CancelAllCommand::IsFinished() 
-{
+bool CancelAllCommand::IsFinished() {
 	return true;
 }
 // Called once after isFinished returns true

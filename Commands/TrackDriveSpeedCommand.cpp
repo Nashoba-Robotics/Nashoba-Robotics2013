@@ -36,7 +36,7 @@ void TrackDriveSpeedCommand::Execute()
 	{
 		if(TimeSinceInitialized() > 1)
 		{
-			Robot::track->Drive(-SmartDashboard::GetNumber("TRACK DOWN SPEED"));//m_speed);
+			Robot::track->Drive(m_speed);
 		}
 	}
 }

@@ -1,0 +1,63 @@
+<<<<<<< HEAD
+# Compiled Object files
+*.slo
+*.lo
+*.o
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+
+# Ignore the builddir
+build/*
+
+# Ignore WindRiver crap
+PPC603gnu/*
+*.*project
+*.wr*
+
+# Some other misc files that might pop up
+*.*swp
+*.*~
+*.*orig
+
+# CMake build files
+build/*
+=======
+#################
+## Eclipse
+#################
+
+*.pydevproject
+.project
+.metadata
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.classpath
+.settings/
+.loadpath
+
+# External tool builders
+.externalToolBuilders/
+
+# Locally stored "Eclipse launch configurations"
+*.launch
+
+# CDT-specific
+.cproject
+
+.wrmakefile
+.wrproject
+*~
+PPC603gnu/*
+>>>>>>> master

@@ -3,27 +3,30 @@
 *.lo
 *.o
 
-# Compiled Dynamic libraries
-*.so
-*.dylib
+*.pydevproject
+.project
+.metadata
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.classpath
+.settings/
+.loadpath
 
-# Compiled Static libraries
-*.lai
-*.la
-*.a
+# External tool builders
+.externalToolBuilders/
 
-# Ignore the builddir
-build/*
+# Locally stored "Eclipse launch configurations"
+*.launch
 
-# Ignore WindRiver crap
+# CDT-specific
+.cproject
+
+.wrmakefile
+.wrproject
+*~
 PPC603gnu/*
-*.*project
-*.wr*
-
-# Some other misc files that might pop up
-*.*swp
-*.*~
-*.*orig
-
-# CMake build files
-build/*

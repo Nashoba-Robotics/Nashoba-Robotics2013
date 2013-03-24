@@ -32,10 +32,8 @@ void Track::InitDefaultCommand() {
 // here. Call these from Commands.
 void Track::Drive(float speed)
 {
-	RobotMap::trackSpeedController1->Set(speed);
-	RobotMap::trackSpeedController2->Set(speed);
-	//speedController1->Set(speed);
-	//speedController2->Set(speed);
+	speedController1->Set(speed);
+	speedController2->Set(speed);
 }
 void Track::TurnOffBreaks(bool value)
 {
