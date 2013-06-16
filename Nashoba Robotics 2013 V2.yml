@@ -1,7 +1,7 @@
 Version 0.0.2
 
 ---
-Name: NashobaRobotics2013
+Name: Nashoba-Robotics2013
 Base: Robot
 Children:
 - Name: Subsystems
@@ -18,7 +18,8 @@ Children:
         Children: []
         Properties:
           CAN ID: !!robotbuilder.data.properties.ChoicesProperty
-            choices: &id001 ['2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+            choices: &id001 ['2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12',
+              '13', '14', '15', '16', '17', '18', '19', '20']
             default: '2'
             name: CAN ID
             validators: &id002 [CANID]
@@ -98,16 +99,16 @@ Children:
       Base: Gyro
       Children: []
       Properties:
-        Sensitivity: !!robotbuilder.data.properties.DoubleProperty {default: 1.25,
+        Sensitivity: !!robotbuilder.data.properties.DoubleProperty {default: 0.007,
           name: Sensitivity, validators: null, value: 0.007}
         Input Module (Analog): !!robotbuilder.data.properties.ChoicesProperty
-          choices: ['1', '2']
+          choices: ['1']
           default: '1'
           name: Input Module (Analog)
           validators: [AnalogInput]
           value: '1'
         Input Channel (Analog): !!robotbuilder.data.properties.ChoicesProperty
-          choices: ['1', '2', '3', '4', '5', '6', '7', '8']
+          choices: ['1', '2']
           default: '1'
           name: Input Channel (Analog)
           validators: [AnalogInput]
@@ -379,6 +380,16 @@ Children:
           name: Reverse Channel (Solenoid)
           validators: *id023
           value: '7'
+    - Name: ArticulatingCANJaguar
+      Base: CAN Jaguar
+      Children: []
+      Properties:
+        CAN ID: !!robotbuilder.data.properties.ChoicesProperty
+          choices: *id001
+          default: '2'
+          name: CAN ID
+          validators: *id002
+          value: '6'
     Properties:
       Default Command: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
         name: Default Command, type: Command, validators: null, value: Articulating Idle Command}
@@ -660,15 +671,15 @@ Properties:
     extension: null, folder: true, name: C++ Windriver Workspace, validators: null,
     value: 'C:\Windriver\workspace'}
   Use Default Java Package: !!robotbuilder.data.properties.BooleanProperty {default: true,
-    name: Use Default Java Package, validators: null, value: true}
+    name: Use Default Java Package, validators: null, value: false}
   Java Package: !!robotbuilder.data.properties.StringProperty {default: org.usfirst.frc0000,
-    name: Java Package, validators: null, value: org.usfirst.frc0000}
+    name: Java Package, validators: null, value: com.nashoba.robotics}
   Export Subsystems: !!robotbuilder.data.properties.BooleanProperty {default: true,
     name: Export Subsystems, validators: null, value: true}
   Team Number: !!robotbuilder.data.properties.IntegerProperty {default: 0, name: Team Number,
     validators: null, value: 1768}
   Export Commands: !!robotbuilder.data.properties.BooleanProperty {default: true,
     name: Export Commands, validators: null, value: true}
-  Java Project Directory: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\Robotics\NetBeansProjects',
+  Java Project Directory: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\Colin\NetBeansProjects',
     extension: null, folder: true, name: Java Project Directory, validators: null,
-    value: 'C:\Users\ColinW\NetBeansProjects'}
+    value: 'C:\Users\Colin\NetBeansProjects'}
