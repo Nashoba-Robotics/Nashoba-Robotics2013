@@ -110,6 +110,12 @@ void Robot::TeleopPeriodic()
 		SmartDashboard::PutData(Robot::tipping);
 		SmartDashboard::PutData(Robot::articulatingArm);
 		SmartDashboard::PutData(Robot::pneumaticsCompressor);
+		
+		// Drive Encoder Values
+		SmartDashboard::PutNumber("Encoder 1: ", RobotMap::driveCANJaguar1->GetPosition());
+		SmartDashboard::PutNumber("Encoder 2: ", RobotMap::driveCANJaguar2->GetPosition());
+		SmartDashboard::PutNumber("Encoder 3: ", RobotMap::driveCANJaguar3->GetPosition());
+		SmartDashboard::PutNumber("Encoder 4: ", RobotMap::driveCANJaguar4->GetPosition());
 	}
 		Scheduler::GetInstance()->Run();
 	
