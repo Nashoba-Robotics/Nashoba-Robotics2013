@@ -1,2 +1,0 @@
-/home/fluffypony/git/Nashoba-Robotics2013/build/CMakeFiles/FRC_UserProgram.dir
-/home/fluffypony/git/Nashoba-Robotics2013/build/CMakeFiles/deploy.dir
